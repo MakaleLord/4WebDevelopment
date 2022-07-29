@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Painting</title>
+        <link rel='stylesheet' href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Off-Brand Picasso</h1>
+
+        <div class="color-picker">
+          <div class="color" id="selected"></div>
+          <div class='color' style="background-color:blue;" onclick="changeColor(this);"></div>
+          <div class='color' style="background-color:black;" onclick="changeColor(this);"></div>
+          <div class='color' style="background-color:#FF1493;" onclick="changeColor(this);"></div>
+          <div class='color' style="background-color:#FFFF00;" onclick="changeColor(this);"></div>
+          <div class='color' style="background-color:#FF00FF;" onclick="changeColor(this);"></div>
+          <div class='color' style="background-color:#4B0082;" onclick="changeColor(this);"></div>
+          <div class='color' style="background-color:#00FF00;" onclick="changeColor(this);"></div>
+          <div class='color' style="background-color:#00FFFF;" onclick="changeColor(this);"></div>
+        
+        </div>
+      <button id='clearBtn' onclick="clearCanvas();">Clear Canvas</button> 
+      <div id='canvas'>
+        
+      </div>
+<script>
+  
+  var canvas = document.getElementById("canvas")
+  function addBoxes(){ 
+  for(var i=0; i<200; i++){
+    canvas.innerHTML += "<div class='box' onclick='fillCanvas(this);'></div>";
+  }
+  }
+  addBoxes();
+  
+  var selectedColor = "black";
+  
+  function fillCanvas(box){
+    box.style.backgroundColor = selectedColor;
+    box.style.borderColor = selectedColor;
+  }
+  
+  function changeColor(colorBox) {
+    selectedColor = colorBox.style.backgroundColor;
+    document.getElementById('selected').style.backgroundColor = selectedColor;
+  }
+  
+  function clearCanvas() {
+    canvas.innerHTML = "";
+    addBoxes();
+  }
+  
+      </script>
+
+
+
+
+
+
+
+    </body>
+</html>
+<script type="application/javascript" src="/share.js"></script>
